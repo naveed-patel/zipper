@@ -13,5 +13,5 @@ python -m zipper.main zip file1.txt
 
 From anywhere else without installing it as a module
 ```
-python <path>/main.py zip file1.txt
+python <path_to_zipper>/src/zipper.py zip file1.txt
 ```
