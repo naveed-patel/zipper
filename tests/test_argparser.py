@@ -172,34 +172,35 @@ def test_main_guard(mock_run):
 
 
 # TODO: Add support for argparse to take options alike typer
-# def test_check_zip_with_multi_excludes_split(main, mock_run):
-#     command = "zipper.py zip 'file 1.txt' file2.txt --exclude *2.txt --exclude **/.git"
-#     sys.argv = shlex.split(command)
-#     main()
-#     mock_run.zipper.assert_called_once_with(
-#         ["file 1.txt", "file2.txt"],
-#         exclude_patterns=["*2.txt", "**/.git"],
-#         output="",
-#         base=".",
-#         prompt=False,
-#         compression="deflate",
-#     )
-#     mock_run.unzipper.assert_not_called()
+def test_check_zip_with_multi_excludes_split(main, mock_run):
+    command = "zipper.py zip 'file 1.txt' file2.txt --exclude *2.txt --exclude **/.git"
+    sys.argv = shlex.split(command)
+    main()
+    mock_run.zipper.assert_called_once_with(
+        ["file 1.txt", "file2.txt"],
+        exclude_patterns=["*2.txt", "**/.git"],
+        output="",
+        base=".",
+        prompt=False,
+        compression="deflate",
+    )
+    mock_run.unzipper.assert_not_called()
 
 
 # TODO: Add support for split out inputs
-# def test_check_zip_with_distributed_input(main, mock_run):
-#     command = (
-#         "zipper.py zip 'file 1.txt' file2.txt --exclude *2.txt **/.git -- file3.txt"
-#     )
-#     sys.argv = shlex.split(command)
-#     main()
-#     mock_run.zipper.assert_called_once_with(
-#         ["file 1.txt", "file2.txt", "file3.txt"],
-#         exclude_patterns=["*2.txt", "**/.git"],
-#         output="",
-#         base=".",
-#         prompt=False,
-#         compression="deflate",
-#     )
-#     mock_run.unzipper.assert_not_called()
+def test_check_zip_with_distributed_input(main, mock_run):
+    command = (
+        "zipper.py zip 'file 1.txt' file2.txt --exclude *2.txt **/.git -- file3.txt"
+    )
+    sys.argv = shlex.split(command)
+    
+    main()
+    mock_run.zipper.assert_called_once_with(
+        ["file 1.txt", "file2.txt", "file3.txt"],
+        exclude_patterns=["*2.txt", "**/.git"],
+        output="",
+        base=".",
+        prompt=False,
+        compression="deflate",
+    )
+    mock_run.unzipper.assert_not_called()
