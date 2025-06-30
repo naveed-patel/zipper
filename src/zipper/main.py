@@ -17,13 +17,9 @@ def run():
             return app()
         except ModuleNotFoundError:
             from zipper.argparser import main
-            from zipper.preprocessor import argpass_preprocessor
-            argpass_preprocessor()
             return main()
     else:
         from zipper.argparser import main
-        from zipper.preprocessor import argpass_preprocessor
-        argpass_preprocessor()
         return main()
 
 

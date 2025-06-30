@@ -61,7 +61,7 @@ def typer_preprocessor() -> None:
     sys.argv = arguments + escape_wildcards(options)
     logger.debug("Processed argv: %s", sys.argv)
 
-def argpass_preprocessor() -> None:
+def argparse_preprocessor() -> None:
     logger.debug("Sys.argv: %s", sys.argv)
     arguments = []  # Capture the main command
     options = {}  # Capture the options

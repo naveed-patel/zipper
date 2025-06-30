@@ -1,11 +1,11 @@
 import argparse
-from zipper.preprocessor import argpass_preprocessor
+from zipper.preprocessor import argparse_preprocessor
 from zipper.unzip import unzipper
 from zipper.zip import zipper
 
 
 def main():
-    argpass_preprocessor()
+    argparse_preprocessor()
     parser = argparse.ArgumentParser(
         description="(Un)zip files/folders with optional AES encryption"
     )
