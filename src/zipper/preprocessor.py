@@ -75,9 +75,7 @@ def argparse_preprocessor() -> None:
         # Option name was read
         if arg.startswith("--"):
             option_name = arg
-            if option_name not in options:
-                options[option_name] = []
-            # options.setdefault(arg, [])
+            options.setdefault(arg, [])
         # Option value was read
         elif option_name:
             options[option_name].append(arg)
